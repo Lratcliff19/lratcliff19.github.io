@@ -18,17 +18,19 @@
             text-align: center;
         }
     </style>
-    <script>
-        var $Articles = $("Articles");
+    <button onclick="myFunction()">Toggle Articles</button>
 
-        $("#show-btn").click(function() 
-        {
-            $Articles.show("normal");
-        });
-        $("#hide-btn").click(function() 
-        {
-            $Articles.hide("normal");
-        });
+    <div id="Articles">
+    </div>
+<script>
+    function myFunction() {
+      var x = document.getElementById("Articles");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    }
     </script>
     <p style= "font-size: 40px;">
         Interactive Timeline of all NBA finals winners from 2010-2020
