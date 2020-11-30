@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    html
+    {
+        background-color: gainsboro;
+        background-image: url("Quote.jpg");
+    }
+    h1
+    {
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        color:cadetblue;
+        font-size: 90px;
+        margin-top: auto;
+        text-align: center;
+    }
+    body
+    {
+        color:cadetblue;
+    }
+    .blinking
+    {
+        font-size: 60px;
+        scroll-margin-top: auto;
+        text-align: center;
+        animation:blink 1.2s infinite;
+    }
+    @keyframes blink
+    {
+    0%{color: #000;}
+    49%{color: #000;}
+    60%{color: transparent;}
+    99%{color:transparent;}
+    100%{color: #000;}
+    }
+</style>
+<h1>
+
+<marquee
+behavior="scroll" 
+direction="left">
+Get a random quote here!
+</marquee>
+ 
+</h1>
+<div>
+    <span class="blinking">Get a Quote --> </span>
+    <button onclick="getQuote()">Click me</button>
+    <p 
+    id ="Quote">
+    </p> 
+</div>
+<body> 
+
+    <script>
+        function getQuote() 
+        {
+            $.getJSON('https://api.quotable.io/random', function(data) {
+            console.log(`${data.content} —${data.author}`)
+        });
+        }
+    </script>
+</body> 
+</html>
